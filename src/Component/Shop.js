@@ -16,6 +16,9 @@ class Shop extends React.Component {
                         <div className="nes-balloon from-left">
                         {this.props.coins >= 50 ? 
                         <button className="nes-btn"onClick={this.props.buyPokeball}> Buy 1 <i className="nes-pokeball shop-pokeball"></i></button> : <button className="nes-btn is-disabled" > Buy 1 <i className="nes-pokeball shop-pokeball"></i></button> }
+                        <br />
+                        {this.props.autoCoin ? 
+                        <button className="nes-btn is-disabled shop-autoCoinPurchased">autoCoin already purchased</button>  : <button className="nes-btn" onClick={this.props.buyAutoCoin}> Buy autoCoin </button> }
                 
                         </div>
                     </section>

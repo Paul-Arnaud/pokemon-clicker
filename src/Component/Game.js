@@ -8,14 +8,18 @@ class Game extends React.Component {
         this.state = {
           coins: 50,
           pokeballs: 0,
-          name: "Player"
+          name: "Player",
+          autoCoin: false
         };
         this.addCoin = this.addCoin.bind(this);
         this.removeCoin = this.removeCoin.bind(this);
         this.changeName = this.changeName.bind(this);
         this.addPokeball = this.addPokeball.bind(this);
         this.buyPokeball = this.buyPokeball.bind(this);
-        setInterval(this.addCoin, 1000);
+        this.autoCoinFunc = this.autoCoinFunc.bind(this);
+        this.buyAutoCoin = this.buyAutoCoin.bind(this);
+        setInterval(this.autoCoinFunc, 1000);
+        
     }
     
     changeName(event) {
@@ -40,11 +44,21 @@ class Game extends React.Component {
         this.addPokeball()
         this.removeCoin(50)
     }
+    buyAutoCoin() {
+        this.setState(state => ({
+            autoCoin: state.autoCoin = true
+        }));
+    }
+    autoCoinFunc() {
+        if(this.state.autoCoin) {
+            this.addCoin();
+        }
+    }
       
     render() {
         return (
             <div>
-                <Shop coins={this.state.coins} buyPokeball={this.buyPokeball}/>
+                <Shop coins={this.state.coins} buyPokeball={this.buyPokeball} buyAutoCoin={this.buyAutoCoin} autoCoin={this.state.autoCoin}/>
                 <input value={this.state.value} onChange={this.changeName} placeholder="Enter your name"/>
                 <br /><br />
                 <section className="message-list">
