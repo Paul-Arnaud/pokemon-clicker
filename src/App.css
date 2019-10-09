@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  margin-top:20px;
 }
 
 .App-logo {
@@ -19,4 +21,14 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.Perso-right {
+  position:relative;
+  left:150px; 
+}
+.Perso-left {
+  position:relative;
+  right:150px; 
+  transform:scaleX(-1);
 }
