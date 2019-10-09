@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Game.css';
 
 class Game extends React.Component {
     constructor(props) {
@@ -27,6 +27,7 @@ class Game extends React.Component {
         return (
             <div>
                 <input value={this.state.value} onChange={this.changeName} placeholder="Enter your name"/>
+                <br /><br />
                 <section className="message-list">
                     <section className="message -right">
                         <div className="nes-balloon from-right">

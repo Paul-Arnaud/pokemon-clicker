@@ -1,0 +1,9 @@
+.Perso-right {
+    position:relative;
+    left:150px; 
+  }
+  .Perso-left {
+    position:relative;
+    right:150px; 
+    transform:scaleX(-1);
+  }
