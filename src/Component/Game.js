@@ -60,7 +60,7 @@ class Game extends React.Component {
         return (
             <div>
                 <Shop coins={this.state.coins} buyPokeball={this.buyPokeball} buyAutoCoin={this.buyAutoCoin} autoCoin={this.state.autoCoin}/>
-                <input value={this.state.value} onChange={this.changeName} placeholder="Enter your name"/>
+                <input onChange={this.changeName} placeholder="Enter your name"/>
                 <br /><br />
                 <section className="message-list">
                     <section className="message -right">
