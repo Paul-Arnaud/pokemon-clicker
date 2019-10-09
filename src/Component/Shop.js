@@ -17,8 +17,8 @@ class Shop extends React.Component {
                         {this.props.coins >= 50 ? 
                         <button className="nes-btn"onClick={this.props.buyPokeball}> Buy 1 <i className="nes-pokeball shop-pokeball"></i></button> : <button className="nes-btn is-disabled" > Buy 1 <i className="nes-pokeball shop-pokeball"></i></button> }
                         <br />
-                        {this.props.autoCoin ? 
-                        <button className="nes-btn is-disabled shop-autoCoinPurchased">autoCoin already purchased</button>  : <button className="nes-btn" onClick={this.props.buyAutoCoin}> Buy autoCoin </button> }
+                        {this.props.coins >= 100 ? (this.props.autoCoin ? 
+                        <button className="nes-btn is-disabled shop-autoCoin">autoCoin is on</button>  : <button className="nes-btn shop-autoCoin" onClick={this.props.buyAutoCoin}> Buy autoCoin </button>) : <button className="nes-btn is-disabled shop-autoCoin">{this.props.autoCoin ? 'autoCoin is on' : 'buy autoCoin' }</button> }
                 
                         </div>
                     </section>

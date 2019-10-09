@@ -6,7 +6,7 @@ class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          coins: 50,
+          coins: 0,
           pokeballs: 0,
           name: "Player",
           autoCoin: false
@@ -48,6 +48,7 @@ class Game extends React.Component {
         this.setState(state => ({
             autoCoin: state.autoCoin = true
         }));
+        this.removeCoin(100)
     }
     autoCoinFunc() {
         if(this.state.autoCoin) {
