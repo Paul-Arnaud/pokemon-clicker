@@ -1,14 +1,17 @@
 .Shop {
     font-size: 14px;
     position: fixed;
-    top: 76px;
+    top: 100px;
     left: 100px;
 }
-
 .shop-autoCoin{
     margin-top: 10px;
 }
-
+.pokeball-small {
+    transform: scale(0.4);
+    width: 0px;
+    height: 52px;
+  }
 .nes-btn {
     text-align:left;
 }

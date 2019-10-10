@@ -1,7 +1,6 @@
 import React from 'react';
 import Shop from './Shop';
 import Cookies from 'universal-cookie';
-import './Game.css';
 
 const cookies = new Cookies();
 
@@ -26,6 +25,14 @@ class Game extends React.Component {
         cookies.set('pokeballs', this.state.pokeballs, { path: '/' });
         cookies.set('name', this.state.name, { path: '/' });
         cookies.set('autoCoin', this.state.autoCoin, { path: '/' });
+    }
+    restart = () => {
+        this.setState({
+            name: 'Player',
+            coins: 0,
+            pokeballs: 0,
+            autoCoin: false           
+    }); 
     }
     changeName = (event) =>  {
         this.setState({name: event.target.value});
@@ -69,9 +76,12 @@ class Game extends React.Component {
     render() {
         return (
             <div>
-                <span className="save nes-text is-success nes-pointer" onClick={this.saveCookies}>SAVE GAME</span>
+                <div className="Game-menu">
+                    <span className="nes-text is-success nes-pointer" onClick={this.saveCookies}>SAVE GAME</span>
+                    <span className="restart nes-text is-error nes-pointer" onClick={this.restart}>RESTART GAME</span>
+                </div>
                 <Shop coins={this.state.coins} buyPokeball={this.buyPokeball} buyAutoCoin={this.buyAutoCoin} autoCoin={this.state.autoCoin}/>
-                <input onChange={this.changeName} placeholder="Enter your name"/>
+                <input className="nes-input name-field" onChange={this.changeName} placeholder="Enter your name"/>
                 <br /><br />
                 <section className="message-list">
                     <section className="message -right">

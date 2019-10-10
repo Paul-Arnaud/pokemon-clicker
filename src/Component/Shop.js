@@ -1,5 +1,5 @@
 import React from 'react';
-import './Shop.css'
+
 
 class Shop extends React.Component {
     constructor(props) {
@@ -15,7 +15,7 @@ class Shop extends React.Component {
                     <section className="message -left">
                         <div className="nes-balloon from-left">
                         {this.props.coins >= 20 ? 
-                        <button className="nes-btn" onClick={this.props.buyPokeball}> Buy 1 <i className="nes-pokeball shop-pokeball"></i><br/>for 20 <i className="nes-icon coin is-small"></i></button> : <button className="nes-btn is-disabled" > Buy 1 <i className="nes-pokeball shop-pokeball"></i><br/>for 20 <i className="nes-icon coin is-small"></i></button> }
+                        <button className="nes-btn" onClick={this.props.buyPokeball}> Buy 1 <i className="nes-pokeball shop-pokeball pokeball-small"></i><br/>for 20 <i className="nes-icon coin is-small"></i></button> : <button className="nes-btn is-disabled" > Buy 1 <i className="nes-pokeball shop-pokeball pokeball-small"></i><br/>for 20 <i className="nes-icon coin is-small"></i></button> }
                         <br />
                         {this.props.coins >= 100 ? (this.props.autoCoin ? 
                         <button className="nes-btn is-disabled shop-autoCoin">autoCoin is on</button>  : <button className="nes-btn shop-autoCoin" onClick={this.props.buyAutoCoin}> Buy autoCoin <br/>for 100 <i className="nes-icon coin is-small"></i></button>) : <button className="nes-btn is-disabled shop-autoCoin">{this.props.autoCoin ? 'autoCoin is on' : 'buy autoCoin' }</button> }

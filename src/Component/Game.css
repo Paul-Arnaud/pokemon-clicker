@@ -7,9 +7,17 @@
     right:150px; 
     transform:scaleX(-1);
   }
-
-  .save {
-    position: fixed;
-    right: 2%;
-    top: 20px;
+  .Game-menu {
+    position:fixed;
+    top:20px;
+    right:2%;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .Game-menu span {
+    margin-bottom:10px;
+  }
+  .restart {
+    font-size:10px;
   }
