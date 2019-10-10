@@ -6,6 +6,7 @@ import './App.css';
 import './Component/Game.css';
 import './Component/Shop.css';
 
+
 const App = () => {
    return (
      <div className="App">
