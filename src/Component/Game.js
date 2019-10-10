@@ -1,56 +1,66 @@
 import React from 'react';
 import Shop from './Shop';
+import Cookies from 'universal-cookie';
 import './Game.css';
+
+const cookies = new Cookies();
 
 class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          coins: 0,
-          pokeballs: 0,
-          name: "Player",
-          autoCoin: false
+          coins:  cookies.get('coin') ? Number.parseInt(cookies.get('coin'), 10) : 0, 
+          pokeballs: cookies.get('pokeballs') ? Number.parseInt(cookies.get('pokeballs'), 10) : 0,
+          name: cookies.get('name') ? cookies.get('name') : "Player",
+          autoCoin: cookies.get('autoCoin') === 'true' ? true : false 
         };
-        this.addCoin = this.addCoin.bind(this);
-        this.removeCoin = this.removeCoin.bind(this);
-        this.changeName = this.changeName.bind(this);
-        this.addPokeball = this.addPokeball.bind(this);
-        this.buyPokeball = this.buyPokeball.bind(this);
-        this.autoCoinFunc = this.autoCoinFunc.bind(this);
-        this.buyAutoCoin = this.buyAutoCoin.bind(this);
+        
         setInterval(this.autoCoinFunc, 1000);
+        setInterval(this.pokeballAddCoin, 2000);
+        setInterval(this.saveCookies, 5000);
         
     }
     
-    changeName(event) {
+    saveCookies = () => {
+        cookies.set('coin', this.state.coins, { path: '/' });
+        cookies.set('pokeballs', this.state.pokeballs, { path: '/' });
+        cookies.set('name', this.state.name, { path: '/' });
+        cookies.set('autoCoin', this.state.autoCoin, { path: '/' });
+    }
+    changeName = (event) =>  {
         this.setState({name: event.target.value});
     }
-    addCoin() {
+    addCoin = () => {
         this.setState(state => ({
           coins: state.coins + 1
         }));
     }
-    removeCoin(value) {
+    removeCoin = (value) => {
         this.setState(state => ({
           coins: state.coins - value
         }));
     }
-    addPokeball() {
+    addPokeball= () => {
         this.setState(state => ({
             pokeballs: state.pokeballs + 1
         }));
     }
-    buyPokeball(){
+    buyPokeball = () => {
         this.addPokeball()
-        this.removeCoin(50)
+        this.removeCoin(20)
     }
-    buyAutoCoin() {
+    pokeballAddCoin = () => {
+        for (let i=0; i < this.state.pokeballs; i++) {
+            this.addCoin();
+        }
+    }
+    buyAutoCoin = () => {
         this.setState(state => ({
             autoCoin: state.autoCoin = true
         }));
         this.removeCoin(100)
     }
-    autoCoinFunc() {
+    autoCoinFunc = () => {
         if(this.state.autoCoin) {
             this.addCoin();
         }
@@ -59,6 +69,7 @@ class Game extends React.Component {
     render() {
         return (
             <div>
+                <span className="save nes-text is-success nes-pointer" onClick={this.saveCookies}>SAVE GAME</span>
                 <Shop coins={this.state.coins} buyPokeball={this.buyPokeball} buyAutoCoin={this.buyAutoCoin} autoCoin={this.state.autoCoin}/>
                 <input onChange={this.changeName} placeholder="Enter your name"/>
                 <br /><br />
@@ -68,7 +79,7 @@ class Game extends React.Component {
                             <div className="nes-text is-primary">   
                             Hello {this.state.name}
                              <br />
-                            You have <span className="nes-text is-success">{this.state.coins}</span> <i className="nes-icon coin is-small"></i><br /> and <span className="nes-text is-error">{this.state.pokeballs} Pokeballs</span> 
+                            You have <span className="nes-text is-warning">{this.state.coins}</span> <i className="nes-icon coin is-small"></i><br /> and <span className="nes-text is-error">{this.state.pokeballs} Pokeballs</span> 
                             </div>
                         </div> 
                     </section>

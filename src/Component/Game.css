@@ -7,3 +7,9 @@
     right:150px; 
     transform:scaleX(-1);
   }
+
+  .save {
+    position: fixed;
+    right: 2%;
+    top: 20px;
+  }
