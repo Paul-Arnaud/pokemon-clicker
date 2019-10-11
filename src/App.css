@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   font-family: 'Press Start 2P', cursive;
-  margin-top:20px;
+
 }
 
 .App-logo {
@@ -25,4 +25,21 @@
 
 .name-field {
   width: 300px;
+}
+
+.App-nav {
+  padding:10px;
+  display:flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  border-bottom:4px solid #D3D3D3;
+}
+.App-nav a {
+  padding: 10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.App-nav .active{
+  color:#92cc41;
 }

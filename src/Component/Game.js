@@ -18,7 +18,13 @@ class Game extends React.Component {
         setInterval(this.coinsShowFunc,1);
         // setInterval(this.autoCoinFunc, 1000);
         setInterval(this.pokeballAddCoin, 2000);
-        setInterval(this.saveCookies, 5000);
+        // setInterval(this.saveCookies, 1);
+    }
+    componentDidUpdate(){
+        this.saveCookies();
+    }
+    componentWillUnmount(){
+        this.saveCookies();
     }
 
     coinsShowFunc = () => {
