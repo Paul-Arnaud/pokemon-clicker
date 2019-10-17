@@ -7,6 +7,34 @@
     right:150px; 
     transform:scaleX(-1);
   }
+  #flame {
+    width: 122px;
+    position: relative; 
+    right: -150px;
+    top: -50px;
+    opacity:0;
+    animation: flame 10s infinite ease-out;
+  }
+  @keyframes flame {
+    0%{
+      opacity:0;
+      right:-150px;
+    }
+    2%{
+      opacity:1;
+    }
+    30%{
+      right:100px;
+      opacity:1;
+    }
+    40%{
+      right:100px;
+      opacity:0;
+    }
+    100% {
+      opacity:0;
+    }
+  }
   .Game-menu {
     position:fixed;
     top:10px;

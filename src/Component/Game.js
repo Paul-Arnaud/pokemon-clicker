@@ -1,7 +1,8 @@
 import React from 'react';
 import Shop from './Shop';
 import Cookies from 'universal-cookie';
-
+import Flame from '../img/flame.png';
+ 
 const cookies = new Cookies();
 
 class Game extends React.Component {
@@ -147,7 +148,7 @@ class Game extends React.Component {
                             </div>
                         </div> 
                     </section>
-                    <i className="nes-charmander Perso-right"></i>
+                    <img src={Flame} alt="flame" id="flame"/><i className="nes-charmander Perso-right"></i>
                 </section>
 
                 <section className="message-left">
