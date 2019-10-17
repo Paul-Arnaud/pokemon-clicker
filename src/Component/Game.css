@@ -21,3 +21,18 @@
   .restart {
     font-size:10px;
   }
+
+  .animate {
+    animation: animate 0.5s;
+  }
+  @keyframes animate {
+    0%{
+      top:0;
+    }
+    50%{
+      top:-20px;
+    }
+    100%{
+      top:0;
+    }
+  }

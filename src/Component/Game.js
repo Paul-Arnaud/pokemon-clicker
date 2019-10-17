@@ -116,6 +116,16 @@ class Game extends React.Component {
     //         this.addCoin();
     //     }
     // }
+    animate = () =>{
+        const squirtle = document.querySelector('.nes-squirtle') ;
+        squirtle.className="animate nes-squirtle Perso-left";
+        // squirtle.className="nes-squirtle Perso-left";
+        setTimeout(()=>{squirtle.className="nes-squirtle Perso-left"}, 500);
+    }
+    theClick = () =>{
+        this.addCoin();
+        this.animate();
+    }
       
     render() {
         return (
@@ -143,10 +153,10 @@ class Game extends React.Component {
                 <section className="message-left">
                     <section className="message -left">
                         <div className="nes-balloon from-left">
-                        <button className="nes-btn" onClick={this.addCoin}> Get +{this.state.numberOfClicks}<i className="nes-icon coin is-small"></i></button>
+                        <button className="nes-btn" onClick={this.theClick}> Get +{this.state.numberOfClicks}<i className="nes-icon coin is-small"></i></button>
                         </div>
                     </section>
-                    <i className="nes-squirtle Perso-left"></i>
+                    <i id="squirtle" className="nes-squirtle Perso-left"></i>
                 </section>
             </div>
         )
